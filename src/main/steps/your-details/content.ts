@@ -4,9 +4,10 @@ import { Checkbox } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en').commonTranslations;
   const en = {
     title: isDivorce ? 'Who are you applying to divorce?' : 'Are you male or female?',
     male: isDivorce ? 'My husband' : 'Male',
@@ -15,17 +16,18 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     sameSex: `We were a same-sex couple when we ${isDivorce ? 'got married' : 'formed our civil partnership'}`,
     errors: {
       gender: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
     },
   };
 
+  const commonContentCy = generateCommonContent('cy').commonTranslations;
   // @TODO translations
   const cy: typeof en = {
     ...en,
     errors: {
       gender: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
     },
   };

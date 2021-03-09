@@ -2,9 +2,10 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const relationship = isDivorce ? 'marriage' : 'relationship';
   const endRelationship = isDivorce ? 'get a divorce' : 'end your civil partnership';
   const en = {
@@ -18,11 +19,12 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
       This is the law in England and Wales.`,
     errors: {
       screenHasUnionBroken: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
     },
   };
 
+  const commonContentCy = generateCommonContent('cy', isDivorce).commonTranslations;
   const cy: typeof en = {
     title: `A yw eich ${isDivorce ? 'priodas' : 'perthynas'} wedi chwalu'n gyfan gwbl (ni ellir ei hachub)?`,
     line1: `Rhaid bod eich ${isDivorce ? 'priodas' : 'perthynas'} wedi chwalu’n gyfan gwbl i chi allu ${
@@ -35,7 +37,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     }. Dyma yw’r gyfraith yng Nghymru a Lloegr.`,
     errors: {
       screenHasUnionBroken: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
     },
   };

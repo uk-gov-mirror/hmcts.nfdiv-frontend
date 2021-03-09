@@ -2,9 +2,10 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const en = {
     title: isDivorce
       ? 'Do you have your marriage certificate with you?'
@@ -22,11 +23,12 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     no: `No, I do not have ${isDivorce ? 'marriage certificate' : 'civil partnership certificate'}`,
     errors: {
       hasCertificate: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
     },
   };
 
+  const commonContentCy = generateCommonContent('cy', isDivorce).commonTranslations;
   const cy: typeof en = {
     title: `A yw eich ${isDivorce ? 'tystysgrif priodas' : 'tystysgrif partneriaeth sifil'} gennych yn awr?`,
     line1:
@@ -42,7 +44,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     no: `Na, nid oes gennyf ${isDivorce ? 'dystysgrif priodas' : 'tystysgrif partneriaeth sifil'}`,
     errors: {
       hasCertificate: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
     },
   };

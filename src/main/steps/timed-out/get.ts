@@ -3,7 +3,7 @@ import { Response } from 'express';
 
 import { AppRequest } from '../../app/controller/AppRequest';
 import { GetController } from '../../app/controller/GetController';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 import { timedOutContent } from './content';
 
@@ -20,7 +20,7 @@ export class TimedOutGetController extends GetController {
       }
 
       const language = req.session?.lang || 'en';
-      const commonLanguageContent = commonContent[language];
+      const commonLanguageContent = generateCommonContent(language).commonTranslations;
       const languageContent = timedOutContent[language];
       const commonPageContent = timedOutContent.common || {};
 

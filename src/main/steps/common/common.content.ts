@@ -149,15 +149,11 @@ const cy: typeof en = {
   no: 'Naddo',
 };
 
-export const generateCommonContent = ({
-  language,
-  isDivorce,
-  selectedGender,
-}: {
-  language: string;
-  isDivorce: boolean;
-  selectedGender: string;
-}): { commonTranslations: Record<string, unknown>; partner: string } => {
+export const generateCommonContent = (
+  language: string,
+  isDivorce = true,
+  selectedGender = ''
+): { commonTranslations: Record<string, unknown>; partner: string } => {
   const commonTranslations = language === 'en' ? en : cy;
   let partner;
   if (!isDivorce) {
@@ -175,5 +171,3 @@ export const generateCommonContent = ({
     partner,
   };
 };
-
-export const commonContent = { en, cy };

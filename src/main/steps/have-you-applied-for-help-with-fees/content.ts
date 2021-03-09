@@ -2,9 +2,10 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn, isInvalidHelpWithFeesRef } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const en = {
     title: `Have you already applied for help with your ${isDivorce ? 'divorce' : ''} fee?`,
     enterRefNo: 'Enter your Help With Fees reference number:',
@@ -12,7 +13,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     refExample: 'For example, HWF-A1B-23C',
     errors: {
       alreadyAppliedForHelpPaying: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
       helpWithFeesRefNo: {
         required:
@@ -24,6 +25,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     },
   };
 
+  const commonContentCy = generateCommonContent('cy', isDivorce).commonTranslations;
   const cy: typeof en = {
     title: `Ydych chi eisoes wedi gwneud cais am help i dalu ${isDivorce ? 'ffi eich ysgariad' : 'eich ffi'}?`,
     enterRefNo: 'Nodwch eich cyfeirnod Help i Dalu Ffioedd:',
@@ -31,7 +33,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     refExample: 'Er enghraifft, HWF-A1B-23C',
     errors: {
       alreadyAppliedForHelpPaying: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
       helpWithFeesRefNo: {
         required:

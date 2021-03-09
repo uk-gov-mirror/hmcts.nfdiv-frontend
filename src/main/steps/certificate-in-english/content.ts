@@ -2,31 +2,33 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const en = {
     title: `Is your original ${
-      isDivorce ? commonContent.en.marriage : commonContent.en.civilPartnership
+      isDivorce ? commonContentEn.marriage : commonContentEn.civilPartnership
     } certificate in English?`,
     line1: 'If your original certificate contains an English version, select ‘yes’.',
     line2: 'If you have an English translation as a separate document, select ‘no’.',
     errors: {
       certificateInEnglish: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
     },
   };
 
+  const commonContentCy = generateCommonContent('cy', isDivorce).commonTranslations;
   const cy: typeof en = {
     title: `A yw eich tystysgrif ${
-      isDivorce ? commonContent.cy.marriage : commonContent.cy.civilPartnership
+      isDivorce ? commonContentCy.marriage : commonContentCy.civilPartnership
     } wreiddiol yn Saesneg?`,
     line1: "Os yw eich tystysgrif wreiddiol yn cynnwys fersiwn Saesneg, dewiswch 'ydy'.",
     line2: "Os oes gennych gyfieithiad Saesneg fel dogfen ar wahân, dewiswch 'nac ydy'.",
     errors: {
       certificateInEnglish: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
     },
   };

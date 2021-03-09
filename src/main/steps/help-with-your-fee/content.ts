@@ -2,9 +2,10 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const en = {
     title: `Do you need help paying the fee for ${isDivorce ? 'your divorce' : 'ending your civil partnership'}?`,
     line1: `This ${
@@ -19,11 +20,12 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     no: 'I do not need help paying the fee',
     errors: {
       helpPayingNeeded: {
-        required: commonContent.en.required,
+        required: commonContentEn.required,
       },
     },
   };
 
+  const commonContentCy = generateCommonContent('cy', isDivorce).commonTranslations;
   const cy: typeof en = {
     title: `A oes angen help arnoch i dalu'r ffi am ${
       isDivorce ? 'eich ysgariad?' : "ddod â'ch partneriaeth sifil i ben?"
@@ -40,7 +42,7 @@ export const generateContent: TranslationFn = ({ isDivorce }) => {
     no: "Nid oes angen help arnaf i dalu'r ffi",
     errors: {
       helpPayingNeeded: {
-        required: commonContent.cy.required,
+        required: commonContentCy.required,
       },
     },
   };

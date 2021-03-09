@@ -1,7 +1,7 @@
-import { commonContent } from '../../../main/steps/common/common.content';
+import { generateCommonContent } from '../../../main/steps/common/common.content';
 
 export const defaultViewArgs = {
-  ...commonContent.en,
+  ...generateCommonContent('en').commonTranslations,
   sessionErrors: expect.any(Array),
   getNextIncompleteStepUrl: expect.any(Function),
   isDivorce: expect.any(Boolean),

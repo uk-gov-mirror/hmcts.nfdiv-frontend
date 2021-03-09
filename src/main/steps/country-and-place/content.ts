@@ -2,9 +2,10 @@ import { YesOrNo } from '../../app/case/case';
 import { TranslationFn } from '../../app/controller/GetController';
 import { FormContent } from '../../app/form/Form';
 import { isFieldFilledIn } from '../../app/form/validation';
-import { commonContent } from '../common/common.content';
+import { generateCommonContent } from '../common/common.content';
 
 export const generateContent: TranslationFn = ({ isDivorce, formState }) => {
+  const commonContentEn = generateCommonContent('en', isDivorce).commonTranslations;
   const formedCeremonyEn = isDivorce ? 'got married' : 'formed your civil partnership';
   const en = {
     title: `Where you ${formedCeremonyEn}`,
@@ -16,10 +17,10 @@ export const generateContent: TranslationFn = ({ isDivorce, formState }) => {
     } certificate.`,
     errors: {
       ceremonyCountry: {
-        required: `${commonContent.en.notAnswered} You need to enter the country.`,
+        required: `${commonContentEn.notAnswered} You need to enter the country.`,
       },
       ceremonyPlace: {
-        required: `${commonContent.en.notAnswered} You need to enter the place.`,
+        required: `${commonContentEn.notAnswered} You need to enter the place.`,
       },
     },
   };

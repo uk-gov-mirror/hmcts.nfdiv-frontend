@@ -4,7 +4,7 @@ import { Response } from 'express';
 import { AppRequest } from '../../app/controller/AppRequest';
 import { AnyObject, PostController } from '../../app/controller/PostController';
 import { Form } from '../../app/form/Form';
-import { commonContent } from '../../steps/common/common.content';
+import { generateCommonContent } from '../../steps/common/common.content';
 import { saveAndSignOutContent } from '../../steps/save-sign-out/content';
 
 @autobind
@@ -18,6 +18,7 @@ export class SaveSignOutPostController<T extends AnyObject> extends PostControll
 
     const email = req.session.user?.email;
     const language = req.session?.lang || 'en';
+    const commonContent = generateCommonContent(language).commonTranslations;
 
     req.session.destroy(err => {
       if (err) {
@@ -25,7 +26,7 @@ export class SaveSignOutPostController<T extends AnyObject> extends PostControll
       }
 
       res.render(`${__dirname}/../../steps/save-sign-out/template.njk`, {
-        ...commonContent[language],
+        ...commonContent,
         ...saveAndSignOutContent[language],
         email,
       });
