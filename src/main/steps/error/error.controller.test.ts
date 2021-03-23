@@ -67,6 +67,16 @@ describe('ErrorController', () => {
     expect(res.statusCode).toBe(400);
     expect(res.render).toBeCalledWith('error/error', { ...generatePageContent('en'), ...errorContent.en[400] });
   });
+
+  test("doesn't render if headers have already been sent", () => {
+    const req = mockRequest();
+    const res = mockResponse();
+    res.headersSent = true;
+    controller.CSRFTokenError(req, res);
+
+    expect(res.status).not.toHaveBeenCalled();
+    expect(res.render).not.toHaveBeenCalled();
+  });
 });
 
 interface MockedLogger {
