@@ -45,8 +45,8 @@ const cy: typeof en = ({ isDivorce, marriage, civilPartnership, partner, require
     point2: `Ni gafodd rhan o'ch enw ei chynnwys ar y dystysgrif ${
       isDivorce ? 'briodas' : 'tystysgrif partneriaeth sifil'
     }.`,
-    point3: `Mae arnom angen gwybod os yw eich enw wedi'i sillafu'n wahanol ar y dystysgrif ${
-      isDivorce ? 'briodas' : 'tystysgrif partneriaeth sifil'
+    point3: `Mae eich enw wedi'i sillafu'n wahanol ar y dystysgrif ${
+      isDivorce ? 'priodas' : 'partneriaeth sifil'
     }.`,
     point4: 'Rydych hefyd yn cael eich adnabod gan enw gwahanol.',
     warning: `Os nad yw'r enw ar y dystysgrif ${
