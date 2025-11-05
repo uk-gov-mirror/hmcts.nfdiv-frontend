@@ -4,7 +4,7 @@ import { FormContent } from '../../../app/form/Form';
 import { atLeastOneFieldIsChecked } from '../../../app/form/validation';
 import { getNameChangeOtherDetailsValidator } from '../../common/content.utils';
 
-const en = ({ isDivorce, required }) => ({
+const en = ({ isDivorce, required, partner }) => ({
   title: `Why is your legal name different to how it is written on the ${
     isDivorce ? 'marriage' : 'civil partnership'
   } certificate?`,
@@ -13,6 +13,7 @@ const en = ({ isDivorce, required }) => ({
   }, or part of your legal name was not included in the ${isDivorce ? 'marriage' : 'civil partnership'} certificate.`,
   changedByDeedPoll: 'I changed my name by deed poll',
   changedPartsOfName: 'I changed my last name or parts of my name when I got married',
+  changedPartsOfNameHint: `For example, if you have taken your ${partner}'s last name or first name or you have a double-barrelled name (Sarah Smith-David).`,
   partOfNameNotIncluded: `Part of my legal name was not included on the ${
     isDivorce ? 'marriage' : 'civil partnership'
   } certificate`,
@@ -41,12 +42,12 @@ const en = ({ isDivorce, required }) => ({
     'You will have to upload some evidence like a government issued ID, a passport, driving license, birth certificate, or deed poll.',
   errors: {
     applicant1WhyNameDifferent: {
-      required,
+      required: `You need to select a reason for why your legal name is different from your ${isDivorce ? 'marriage' : 'civil partnership'} certificate.`,
       applicant1WhyNameDifferentOtherDetails:
         'You have not answered the question. You need to say how you changed your name so the court knows which document to check.',
     },
     applicant1NameDifferentToMarriageCertificateMethod: {
-      required,
+      required: 'You need to answer how you changed your name.',
       applicant1NameDifferentToMarriageCertificateOtherDetails:
         'You have not answered the question. You need to say how you changed your name so the court knows which document to check.',
     },
@@ -90,12 +91,12 @@ const cy = ({ isDivorce, required }) => ({
     'Bydd rhaid i chi uwchlwytho tystiolaeth fel cerdyn adnabod a gyhoeddwyd gan y llywodraeth, pasbort, trwydded yrru neu dystysgrif geni, gweithred newid enw.',
   errors: {
     applicant1WhyNameDifferent: {
-      required,
+      required: `Mae angen i chi ddewis rheswm dros pam bod eich enw cyfreithiol yn wahanol i’ch tystysgrif ${isDivorce ? 'priodas' : 'partneriaeth sifil'}.`,
       applicant1WhyNameDifferentOtherDetails:
         'Nid ydych wedi ateb y cwestiwn. Mae angen i chi ddweud sut y gwnaethoch newid eich enw, fel bod y llys yn gwybod pa ddogfen i’w gwirio.',
     },
     applicant1NameDifferentToMarriageCertificateMethod: {
-      required,
+      required: 'Mae angen i chi ateb sut newidioch eich enw.',
       applicant1NameDifferentToMarriageCertificateOtherDetails:
         'Nid ydych wedi ateb y cwestiwn. Mae angen i chi ddweud sut y gwnaethoch newid eich enw, fel bod y llys yn gwybod pa ddogfen i’w gwirio.',
     },
@@ -120,6 +121,7 @@ export const form: FormContent = {
           name: 'applicant1WhyNameDifferent',
           label: l => l.changedPartsOfName,
           value: ChangedNameWhy.CHANGED_PARTS_OF_NAME,
+          hint: l => l.changedPartsOfNameHint,
           subFields: {
             applicant1NameDifferentToMarriageCertificateMethod: {
               type: 'checkboxes',

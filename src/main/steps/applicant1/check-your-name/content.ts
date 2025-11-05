@@ -26,7 +26,7 @@ const en = ({ isDivorce, marriage, civilPartnership, partner, required }, fullNa
     no: 'No',
     errors: {
       applicant1NameDifferentToMarriageCertificate: {
-        required,
+        required: `You need to answer if any part of your full name is written differently on your ${isDivorce ? 'marriage' : 'civil partnership'} certificate.`,
       },
     },
   };
@@ -59,7 +59,7 @@ const cy: typeof en = ({ isDivorce, marriage, civilPartnership, partner, require
     no: 'Nac ydy',
     errors: {
       applicant1NameDifferentToMarriageCertificate: {
-        required,
+        required: `Mae angen i chi ateb os yw unrhyw ran o’ch enw llawn wedi’i ysgrifennu’n wahanol ar eich tystysgrif ${isDivorce ? 'priodas' : 'partneriaeth sifil'}.`,
       },
     },
   };
@@ -72,7 +72,7 @@ export const form: FormContent = {
       classes: 'govuk-radios',
       label: l => l.doesNameMatchTheCertificate,
       values: [
-        { label: l => l.yes, value: YesOrNo.YES },
+        { label: l => l.yes, value: YesOrNo.YES, id: 'applicant1NameDifferentToMarriageCertificate' },
         { label: l => l.no, value: YesOrNo.NO },
       ],
       validator: value => isFieldFilledIn(value),

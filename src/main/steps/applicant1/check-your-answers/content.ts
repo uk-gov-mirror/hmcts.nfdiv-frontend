@@ -206,7 +206,7 @@ const en = ({
         userCase.applicant1LastNames
       }) written differently on your ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line2: `How is your name written on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
-      line3: `Why is your legal name different on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
+      line3: `Why is your legal name different to how it is written on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line4: 'Other details of why you changed your name',
       line5: 'How did you change your name?',
       line6: 'Other details of how you changed your name',
@@ -221,9 +221,9 @@ const en = ({
       line9: `Why is your ${partner}'s legal name different on the ${
         isDivorce ? 'marriage' : 'civil partnership'
       } certificate?`,
-      line10: `Other details of why your ${partner} changed your name`,
+      line10: `Other details of why your ${partner} changed their name`,
       line11: 'How did they change their name?',
-      line12: `Other details of how your ${partner} changed your name`,
+      line12: `Other details of how your ${partner} changed their name`,
     },
     aboutYouForApplicant2: {
       line1: 'Your first name(s)',
@@ -233,7 +233,7 @@ const en = ({
         userCase.applicant2LastNames
       }) written differently on your ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line5: `How is your name written on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
-      line6: `Why is your legal name different on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
+      line6: `Why is your legal name different to how it is written on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line7: 'Other details of why you changed your name',
       line8: 'How did you change your name?',
       line9: 'Other details of how you changed your name',
@@ -779,7 +779,7 @@ const cy: typeof en = ({
         userCase.applicant1LastNames
       }) written differently on your ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line2: `Eich enwau fel y maent yn ymddangos ar eich tystysgrif ${isDivorce ? marriage : civilPartnership}?`,
-      line3: `Why is your legal name different on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
+      line3: `Why is your legal name different to how it is written on the ${isDivorce ? 'marriage' : 'civil partnership'} certificate?`,
       line4: 'Details of why you changed your name:',
       line5: 'How did you change your name?',
       line6: 'Details of how you changed your name:',

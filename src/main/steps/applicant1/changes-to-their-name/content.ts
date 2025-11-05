@@ -41,14 +41,14 @@ const en = ({ isDivorce, required, partner }) => ({
   warningMustUploadEvidence:
     'You will have to upload some evidence like a government issued ID, a passport, driving license, or birth certificate.',
   errors: {
-    applicant1WhyNameDifferent: {
+    applicant2WhyNameDifferent: {
       required,
-      applicant1WhyNameDifferentOtherDetails:
-        'You have not answered the question. You need to say how you changed your name so the court knows which document to check.',
+      applicant2WhyNameDifferentOtherDetails:
+      'You have not answered the question. You need to say how you changed your name so the court knows which document to check.',
     },
-    applicant1NameDifferentToMarriageCertificateMethod: {
+    applicant2NameDifferentToMarriageCertificateMethod: {
       required,
-      applicant1NameDifferentToMarriageCertificateOtherDetails:
+      applicant2NameDifferentToMarriageCertificateOtherDetails:
         'You have not answered the question. You need to say how you changed your name so the court knows which document to check.',
     },
   },
@@ -92,7 +92,7 @@ const cy = ({ isDivorce, required, partner }) => ({
     },
     applicant2WhyNameDifferent: {
       required,
-      applicant2WhyNameDifferent:
+      applicant2WhyNameDifferentOtherDetails:
         'Nid ydych wedi ateb y cwestiwn. Mae angen i chi ddweud sut y gwnaethoch newid eich enw, fel bod y llys yn gwybod pa ddogfen i’w gwirio.',
     },
     applicant2NameDifferentToMarriageCertificateMethod: {
